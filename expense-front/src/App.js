@@ -14,40 +14,35 @@ import CustomerList from "./Components/CustomerComponent/CustomerList";
 import CustomerUpdate from "./Components/CustomerComponent/CustomerUpdate";
 import CustomerDetails from "./Components/CustomerComponent/CustomerDetails";
 import CustomerCurrent from "./Components/CustomerComponent/CustomerCurrent";
+import ExpenseEntry from "./Components/ExpenseComponent/ExpenseEntry"; 
+import ExpenseReportAdmin from "./Components/ExpenseComponent/ExpenseReportAdmin";
+import ExpenseReportCustomer from "./Components/ExpenseComponent/ExpenseReportCustomer";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          {/* Default Login Route */}
           <Route path="/" element={<LoginPage />} />
-          
-          {/* Registration */}
           <Route path="/Register" element={<RegisterUser />} />
           
-          {/* Admin Routes */}
           <Route path="/AdminMenu" element={<AdminMenu />} />
-          
-          {/* Customer Routes */}
           <Route path="/CustomerMenu" element={<CustomerMenu />} />
           <Route path="/customer-add" element={<CustomerAddition />} />
           <Route path="/customer-list" element={<CustomerList />} />
           <Route path="/customer-update/:customerId" element={<CustomerUpdate />} />
           <Route path="/current-customer" element={<CustomerCurrent />} />
-          
-          {/* Ensure Customer Details Route has a Dynamic ID */}
           <Route path="/customer-details/:customerId" element={<CustomerDetails />} />
-          
-          {/* Category Routes */}
           <Route path="/category-add" element={<CategoryAddition />} />
           <Route path="/admin-category-list" element={<AdminCategoryList />} />
           <Route path="/customer-category-list" element={<CustomerCategoryList />} />
           <Route path="/update-category/:categoryId" element={<CategoryUpdate />} />
           
-          {/* Expense Routes (Placeholder Pages) */}
-          <Route path="/add-expense" element={<h2>Add Expense Page</h2>} />
-          <Route path="/view-expenses" element={<h2>View Expenses Page</h2>} />
+          {/* Expense Routes */}
+          <Route path="/expense-entry" element={<ExpenseEntry />} />
+          <Route path="/reports" element={<ExpenseReportAdmin />} />
+          <Route path="/expense-report" element={<ExpenseReportCustomer />} />
+
           <Route path="/profile" element={<h2>Profile Page</h2>} />
         </Routes>
       </BrowserRouter>
