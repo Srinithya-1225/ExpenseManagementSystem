@@ -1,19 +1,30 @@
-import axios from 'axios';
+import axios from "axios";
 
-const BASE_URL = "http://localhost:8080/api/expenses";
+const BASE_URL = "http://localhost:9797/exp-mng";
 
-class ExpenseService {
-  addExpense(expense) {
-    return axios.post(`${BASE_URL}/add`, expense);
-  }
+// Fetch all expenses
+export const getAllExpenses = () => axios.get(`${BASE_URL}/expenses`);
 
-  getAllExpenses() {
-    return axios.get(`${BASE_URL}/all`);
-  }
+// Generate a new expense number
+export const generateExpenseNumber = () => axios.get(`${BASE_URL}/expense-number`);
 
-  getExpensesByCustomer(customerId) {
-    return axios.get(`${BASE_URL}/customer/${customerId}`);
-  }
-}
+// Fetch expenses for the logged-in customer
+export const getExpensesByCustomer = () => axios.get(`${BASE_URL}/expense-cust`);
 
-export default new ExpenseService();
+// Fetch expenses by a specific customer ID
+export const getExpensesByCustomerId = (customerId) => axios.get(`${BASE_URL}/expense-cust/${customerId}`);
+
+// Fetch expenses for a specific category
+export const getExpensesByCategory = (categoryId) => axios.get(`${BASE_URL}/expense-cat/${categoryId}`);
+
+// Save a new expense
+export const saveExpense = (expense) => axios.post(`${BASE_URL}/add-expense`, expense);
+
+// Update an existing expense by ID
+export const updateExpense = (expenseId, expense) => axios.put(`${BASE_URL}/update-expense/${expenseId}`, expense);
+
+// Fetch an expense by its ID
+export const getExpenseById = (expenseId) => axios.get(`${BASE_URL}/expense/${expenseId}`);
+
+// Delete an expense by its ID
+export const deleteExpenseById = (expenseId) => axios.delete(`${BASE_URL}/expense/delete/${expenseId}`);

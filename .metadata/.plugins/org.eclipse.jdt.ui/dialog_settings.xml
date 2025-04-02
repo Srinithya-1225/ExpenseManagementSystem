@@ -138,7 +138,7 @@
 		<item key="org.eclipse.jdt.internal.ui.text.JavaOutlineInformationControlDIALOG_USE_PERSISTED_LOCATION" value="false"/>
 	</section>
 	<section name="JavaProjectWizard.dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="-188"/>
+		<item key="DIALOG_X_ORIGIN" value="4"/>
 		<item key="DIALOG_Y_ORIGIN" value="41"/>
 		<item key="DIALOG_WIDTH" value="964"/>
 		<item key="DIALOG_HEIGHT" value="979"/>
