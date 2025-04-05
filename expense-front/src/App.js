@@ -17,7 +17,8 @@ import CustomerCurrent from "./Components/CustomerComponent/CustomerCurrent.jsx"
 import ExpenseEntry from "./Components/Expense/ExpenseEntry.jsx";
 import ExpenseList from "./Components/Expense/ExpenseList.jsx";
 import ExpenseUpdate from "./Components/Expense/ExpenseUpdate.jsx";
-import ExpenseReport from "./Components/Expense/ExpenseReport.jsx"
+
+import ExpenseAnalysis from "./Components/Expense/ExpenseAnalysis.jsx";
 function App() {
   return (
     <div className="App">
@@ -53,7 +54,8 @@ function App() {
           <Route path="/expense-entry/:categoryId" element={<ExpenseEntry />} />
           <Route path="/expenses-list" element={<ExpenseList />} />
           <Route path="/expense-update/:expenseId" element={<ExpenseUpdate />} />
-          <Route path="/admin-expense-report" element={<ExpenseReport />} />
+          
+          <Route path='/expense-analysis' element={<ExpenseAnalysis/>}/>
         </Routes>
       </BrowserRouter>
     </div>
