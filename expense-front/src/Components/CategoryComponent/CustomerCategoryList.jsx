@@ -89,7 +89,7 @@ const CustomerCategoryList = () => {
                   <td style={{ backgroundColor: "rgba(138, 240, 242, 0.9)" }}>
                     <button
                       className="btn"
-                      onClick={() => navigate(`/expense-entry/${category.categoryId}`)}
+                      onClick={() => navigate(`/Expense-entry/${category.categoryId}`)}
                       style={{ backgroundColor: "#2980b9", color: "#ecf0f1" }}
                     >
                       Expense Entry

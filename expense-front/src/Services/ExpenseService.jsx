@@ -1,38 +1,50 @@
 import axios from "axios";
 
 const BASE_URL = "http://localhost:9797/exp-mng";
-const URL="http://localhost:9797/exp-mng/expenses";
 
-// Fetch all expenses
-export const getAllExpenses = () => axios.get(`${BASE_URL}/expenses`);
+export const getAllExpenses = () => {
+    return axios.get(`${BASE_URL}/expenses`);
+};
 
-// Generate a new expense number
-export const generateExpenseNumber = () => axios.get(`${BASE_URL}/expense-number`);
+export const generateExpenseNumber = () => {
+    return axios.get(`${BASE_URL}/expense-number`);
+};
 
-// Fetch expenses for the logged-in customer
-export const getExpensesByCustomer = () => axios.get(`${BASE_URL}/expense-cust`);
+export const getExpensesByCustomer = () => {
+    return axios.get(`http://localhost:9797/exp-mng/expense-cust`);
+};
 
-// Fetch expenses by a specific customer ID
-export const getExpensesByCustomerId = (customerId) => axios.get(`${BASE_URL}/expense-cust/${customerId}`);
+export const getExpensesByCustomerId = (id) => {
+    return axios.get(`${BASE_URL}/expense-cust/${id}`);
+};
 
-// Fetch expenses for a specific category
-export const getExpensesByCategory = (categoryId) => axios.get(`${BASE_URL}/expense-cat/${categoryId}`);
+export const getExpensesByCategory = (categoryId) => {
+    return axios.get(`${BASE_URL}/expense-cat/${categoryId}`);
+};
 
-// Save a new expense
-export const saveExpense = (expense) => axios.post(`${BASE_URL}/add-expense`, expense);
+export const saveExpense = (expense) => {
+    return axios.post(`${BASE_URL}/add-expense`, expense);
+};
 
-// Update an existing expense by ID
-export const updateExpense = (expenseId, expense) => axios.put(`${BASE_URL}/update-expense/${expenseId}`, expense);
+export const deleteExpenseById = (id) => {
+    return axios.delete(`${BASE_URL}/expense/delete/${id}`);
+};
 
-// Fetch an expense by its ID
-export const getExpenseById = (expenseId) => axios.get(`${BASE_URL}/expense/${expenseId}`);
+export const updateExpense = (id, expense) => {
+    return axios.put(`${BASE_URL}/update-expense/${id}`, expense);
+};
 
-// Delete an expense by its ID
-export const deleteExpenseById = (expenseId) => axios.delete(`${BASE_URL}/expense/delete/${expenseId}`);
- 
-export const getExpensesReportByCustomer=()=>{
-    return axios.get(`${URL}`);
-}
-export const getExpensesReportByCustomerId=(id)=>{
-    return axios.get(`${URL}/id`);
-}
+export const getExpenseById = (id) => {
+    return axios.get(`${BASE_URL}/expense/${id}`);
+};
+
+
+{/*const EXPENSE_URL = `http://localhost:9797/exp-mng/expenses`;  //for fetching all the expense
+const EXPENSE_NUMBER_URL = `http://localhost:9797/exp-mng/expense-number`;  //for fetching the expense-number
+const EXPENSE_BY_ID = `http://locahost:9797/exp-mng/expense/id`;
+const EXPENSE_ADD_EXPENSE = `http://localhost:9797/exp-mng/add-expense`;  //for adding the expenses
+const EXPENSE_CUST = `http://localhost:9797/exp-mng/expense-cust`;  //for getting the expense of a customer
+const EXPENSE_CUST_ID = `http://localhost:9797/exp-mng/expense-cat/id`;  //for getting the expense in a particular category
+const EXPENSE_CAT_ID = `http://localhost:9797/exp-mng/expense-cat/id`;  //for getting the expense by categoryId
+const EXPENSE_UPDATE = `http://localhost:9797/exp-mng/update-expense/id`; //for updating the expense
+const EXPENSE_DELETE = `http://localhost:9797/exp-mng/delete/id`;*/}

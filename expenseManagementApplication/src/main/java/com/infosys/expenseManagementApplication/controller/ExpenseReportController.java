@@ -1,5 +1,7 @@
 package com.infosys.expenseManagementApplication.controller;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +41,7 @@ public class ExpenseReportController {
 	@GetMapping("/expense-cust")
     public List<Expense> getExpensesByCustomer(){
 		String userId=service.getUserId();
-		System.out.println("UserId:"+userId);
+    	System.out.println("UserId:"+userId);
 		Customer customer=customerDao.getCustomerByUsername(userId);
 		String customerId=customer.getCustomerId();
 		System.out.println("Customer:"+customerId);
@@ -84,6 +86,48 @@ public class ExpenseReportController {
     @GetMapping("/expense/{id}")
     public Expense getExpenseById(@PathVariable String id) {
     	return expenseDao.getExpenseById(id);
+    }
+    
+    @GetMapping("/expense-total")
+    public List<Object[]> getTotalAmountByCategory() {
+        String userId = service.getUserId();
+        System.out.println("UserId: " + userId);
+        Customer customer = customerDao.getCustomerByUsername(userId);
+        String customerId = customer.getCustomerId();
+        System.out.println("Customer: " + customerId);
+
+        return expenseDao.getTotalAmountByCategory(customerId);
+    }
+
+    @GetMapping("/expense-total-range")
+    public List<Object[]> getTotalAmountByCategoryBetweenDates(@RequestParam String startDate, @RequestParam String endDate) {
+        String userId = service.getUserId();
+        Customer customer = customerDao.getCustomerByUsername(userId);
+        String customerId = customer.getCustomerId();
+        
+        return expenseDao.getTotalAmountByCategoryBetweenDates(customerId, startDate, endDate);
+    }
+
+    @GetMapping("/summary/{customerId}")
+    public List<Map<String, Object>> getCategoryWiseExpenseSummary(@PathVariable String customerId) {
+        List<Object[]> results = expenseDao.fetchCategoryWiseTotal(customerId);
+        return results.stream().map(row -> {
+            Map<String, Object> data = new HashMap<>();
+            data.put("categoryId", row[0]);
+            data.put("totalAmount", row[1]);
+            return data;
+        }).toList();
+    }
+
+    @GetMapping("/summary-range")
+    public List<Map<String, Object>> getCategoryWiseExpenseSummaryByDateRange(@RequestParam String customerId, @RequestParam String startDate, @RequestParam String endDate) {
+        List<Object[]> results = expenseDao.fetchCategoryWiseTotalByDateRange(customerId, startDate, endDate);
+        return results.stream().map(row -> {
+            Map<String, Object> data = new HashMap<>();
+            data.put("categoryId", row[0]);
+            data.put("totalAmount", row[1]);
+            return data;
+        }).toList();
     }
 	
 	

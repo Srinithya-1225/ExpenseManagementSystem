@@ -11,5 +11,12 @@ public interface ExpenseDao {
     
     public void deleteExpenseById(String id);
     public Expense getExpenseById(String id);
+    
+    List<Object[]> getTotalAmountByCategory(String customerId);
+    List<Object[]> getTotalAmountByCategoryBetweenDates(String customerId, String startDate, String endDate);
+    List<Object[]> fetchCategoryWiseTotal(String customerId);
+    List<Object[]> fetchCategoryWiseTotalByDateRange(String customerId, String startDate, String endDate);
+
+
 
 }

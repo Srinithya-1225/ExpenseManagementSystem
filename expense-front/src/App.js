@@ -1,24 +1,26 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import LoginPage from "./Components/LoginComponent/LoginPage.jsx";
-import RegisterUser from "./Components/LoginComponent/RegisterUser.jsx";
-import AdminMenu from "./Components/LoginComponent/AdminMenu.jsx";
-import CustomerMenu from "./Components/LoginComponent/CustomerMenu.jsx";
-import CategoryAddition from "./Components/CategoryComponent/CategoryAddition.jsx";
-import AdminCategoryList from "./Components/CategoryComponent/AdminCategoryList.jsx";
-import CategoryUpdate from "./Components/CategoryComponent/CategoryUpdate.jsx";
-import CustomerCategoryList from "./Components/CategoryComponent/CustomerCategoryList.jsx";
-import CustomerAddition from "./Components/CustomerComponent/CustomerAddition.jsx";
-import CustomerList from "./Components/CustomerComponent/CustomerList.jsx";
-import CustomerUpdate from "./Components/CustomerComponent/CustomerUpdate.jsx";
-import CustomerDetails from "./Components/CustomerComponent/CustomerDetails.jsx";
-import CustomerCurrent from "./Components/CustomerComponent/CustomerCurrent.jsx";
-import ExpenseEntry from "./Components/Expense/ExpenseEntry.jsx";
-import ExpenseList from "./Components/Expense/ExpenseList.jsx";
-import ExpenseUpdate from "./Components/Expense/ExpenseUpdate.jsx";
+import LoginPage from "./Components/LoginComponent/LoginPage";
+import RegisterUser from "./Components/LoginComponent/RegisterUser";
+import AdminMenu from "./Components/LoginComponent/AdminMenu";
+import CustomerMenu from "./Components/LoginComponent/CustomerMenu";
+import CategoryAddition from "./Components/CategoryComponent/CategoryAddition";
+import AdminCategoryList from "./Components/CategoryComponent/AdminCategoryList";
+import CategoryUpdate from "./Components/CategoryComponent/CategoryUpdate";
+import CustomerCategoryList from "./Components/CategoryComponent/CustomerCategoryList";
+import CustomerAddition from "./Components/CustomerComponent/CustomerAddition";
+import CustomerList from "./Components/CustomerComponent/CustomerList";
+import CustomerUpdate from "./Components/CustomerComponent/CustomerUpdate";
+import CustomerDetails from "./Components/CustomerComponent/CustomerDetails";
+import CustomerCurrent from "./Components/CustomerComponent/CustomerCurrent";
+import ExpenseEntry from "./Components/ExpenseComponent/ExpenseEntry";
+import ExpenseListCustomer from "./Components/ExpenseComponent/ExpenseList";
+import ExpenseUpdate from "./Components/ExpenseComponent/ExpenseUpdate";
+import CustomerExpenses from "./Components/ExpenseComponent/CustomerExpenses";
 
-import ExpenseAnalysis from "./Components/Expense/ExpenseAnalysis.jsx";
+import AdminExpenseReport from "./Components/ExpenseComponent/AdminExpenseReport";
+import ExpenseBarChart from "./Components/ExpenseComponent/ExpenseBarChart";
 function App() {
   return (
     <div className="App">
@@ -50,12 +52,14 @@ function App() {
           <Route path="/update-category/:categoryId" element={<CategoryUpdate />} />
 
           {/* Expense Routes (Placeholder Pages) */}
-          <Route path="/expense-entry" element={<ExpenseEntry />} />
-          <Route path="/expense-entry/:categoryId" element={<ExpenseEntry />} />
-          <Route path="/expenses-list" element={<ExpenseList />} />
-          <Route path="/expense-update/:expenseId" element={<ExpenseUpdate />} />
-          
-          <Route path='/expense-analysis' element={<ExpenseAnalysis/>}/>
+          <Route Path="/Expense-entry/:categoryid" element={<ExpenseEntry />} />
+          <Route path="/Expense-entry" element={<ExpenseEntry />} />
+          <Route path="/expenseListCust" element={<ExpenseListCustomer />} />
+          <Route path="/expense-update/:id" element={<ExpenseUpdate />} />
+          <Route path="/CustExpenses/:customerId" element={<CustomerExpenses />} />
+          <Route path="/Expense-entry/:categoryId" element={<ExpenseEntry />} />
+          <Route path="/Expense-bar-chart" element={<ExpenseBarChart />} />
+          <Route path="/admin-report" element={<AdminExpenseReport />} />
         </Routes>
       </BrowserRouter>
     </div>
