@@ -18,7 +18,7 @@ import ExpenseEntry from "./Components/ExpenseComponent/ExpenseEntry";
 import ExpenseListCustomer from "./Components/ExpenseComponent/ExpenseList";
 import ExpenseUpdate from "./Components/ExpenseComponent/ExpenseUpdate";
 import CustomerExpenses from "./Components/ExpenseComponent/CustomerExpenses";
-
+import ExpenseEntryCategory from "./Components/ExpenseComponent/ExpenseEntryCategory";
 import AdminExpenseReport from "./Components/ExpenseComponent/AdminExpenseReport";
 import ExpenseBarChart from "./Components/ExpenseComponent/ExpenseBarChart";
 function App() {
@@ -56,7 +56,7 @@ function App() {
           <Route path="/expenseListCust" element={<ExpenseListCustomer />} />
           <Route path="/update-expense/:id" element={<ExpenseUpdate />} />
           <Route path="/CustExpenses/:customerId" element={<CustomerExpenses />} />
-          
+          <Route path="/Expense-entry-category/:categoryId" element={<ExpenseEntryCategory />} />
           <Route path="/Expense-bar-chart" element={<ExpenseBarChart />} />
           <Route path="/admin-report" element={<AdminExpenseReport />} />
           <Route path="/expense-entry/:categoryId?" element={<ExpenseEntry />} />
